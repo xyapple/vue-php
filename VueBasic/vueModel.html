@@ -10,12 +10,17 @@
     <body>
 <div id='app'>
     <input v-model="message" />
+    <p>{{message}}</p>
+    <hr/>
+    <input v-model="newMessage" />
+    <p>{{newMessage}}</p>
 </div>
 <script type="text/javascript">
     var vm = new Vue({
         el:"#app",
         data:{
             message:'Initial value. ',
+            newMessage: 'This is the new message property.',
         },
     })
 </script>
