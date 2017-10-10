@@ -7,7 +7,9 @@
     </head>
     <body>
     <div id='app'>
-        <span>{{message}}</span>
+        <p>{{message}}</p>
+        <p v-show="message">SHOW P tag when True (v-show)</p>
+        <p v-if="message">SHOW P tag when True(v-if)</p>
         <button @click="message=!message">Click Here</button>
     </div>
     <script type="text/javascript">
