@@ -11,11 +11,16 @@
     <body>
         <div id='app'>
             <p>My name is <span>{{name}}</span></p>
+            <img src='vue_logo.png' alt='nothing is there'/>
+            <br/>
+            <img :src="url"/>
         </div>
+
         <script type="text/javascript">
         var model = {
             name:"firstVuewModel",
-            
+            url:"vue_logo.png",
+
         }
             var vm = new Vue({
                 el:"#app",
