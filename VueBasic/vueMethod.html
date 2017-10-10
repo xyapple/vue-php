@@ -7,12 +7,15 @@
     </head>
     <body>
     <div id='app'>
-        <button v-on:click="hi">Click Here</button>
+        <span>{{message}}</span>
+        <button @click="message=!message">Click Here</button>
     </div>
     <script type="text/javascript">
         var vm = new Vue({
             el:"#app",
-            data:{},
+            data:{
+                message:true,
+            },
             methods: {
                 hi:function () {
                     alert("Hi! ")
