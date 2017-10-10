@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<htm>
+    <head>
+        <title>Home</title>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style media="screen">
+        </style>
+        <script type="text/javascript" src="vue.js"></script>
+    </head>
+    <body>
+        <div id='app'>
+            <p>My name is <span v-text="name"></span></p>
+        </div>
+        <script type="text/javascript">
+        var model = {
+            name:"firstVuewModel",
+        }
+            var vm = new Vue({
+                el:"#app",
+                data:model,
+            })
+        </script>
+    </body>
+</htm>
