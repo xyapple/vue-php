@@ -13,13 +13,16 @@
 <template id="temp">
     <div class="comp-root">
         <p>This is a Component</p>
+        <p>{{message}}</p>
     </div>
 </template>
 <script type="text/javascript">
     Vue.component('simple_comp',{
         template:"#temp",
         data:function () {
-            return{}
+            return{
+                message:"Component's own data",
+            }
         },
         props:[],
         methods: {},
