@@ -24,6 +24,15 @@
     <hr/>
     <input v-model="newMessage" />
     <p>{{newMessage}}</p>
+    <hr/>
+    <select v-model="optionMess">
+        <option value="apple">option 1</option>
+        <option value="pear">option 2</option>
+        <option value="flower">option 3</option>
+        <option value="rose">option 4</option>
+        <option value="orange">option 5</option>
+    </select>
+    <p>You had selected Option: {{optionMess}}</p>
 </div>
 <script type="text/javascript">
     var vm = new Vue({
@@ -33,6 +42,7 @@
             newMessage: 'This is the new message property.',
             textMess:'This is textarea input....',
             boxMess:[],
+            optionMess: '',
         },
     })
 </script>
