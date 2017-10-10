@@ -9,7 +9,7 @@
     </head>
     <body>
 <div id='app'>
-    <input v-model="message" />
+    <input v-model.lazy="message" />
     <p>{{message}}</p>
     <hr/>
     <input v-model="newMessage" />
