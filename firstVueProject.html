@@ -1,73 +1,84 @@
 <!DOCTYPE html>
 <htm>
+
     <head>
         <title>Home</title>
         <meta http-equiv="content-type" content="text/html;charset=utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel='stylesheet' href='./css/style.css'/>
+        <link rel='stylesheet' href='./css/style.css' />
         <script type="text/javascript" src="vue.js"></script>
     </head>
+
     <body>
         <div id='app'>
-            <div class='img-frame' v-for="i in imgSet">
-            <p>This is <span>{{i.title}}</span></p>
-            <div class='img_frame'>
-                    <img :src="i.url" :title="title" class="img_size"/>
-            </div>
+            <div class='main_frame' v-for="i in imgSet">
+                <div class='img_frame'>
+                    <img :src="i.url" :title="title" class="img_size" />
+                </div>
+                <div class='summary_frame'>
+                    <div class='gap'></div>
 
-            <p>Summary: <span>{{i.summary}}</span></p>
-            <p>Category: <span>{{i.category}}</span></p>
-            <br/>
+                    <div class="title">
+                        <h5>{{i.title}}</h5>
+                    </div>
+                    <div class="summary">
+                        {{i.summary}}
+                    </div>
+                    <div class='category'>
+                        <p>Category: <span>{{i.category}}</span></p>
+                    </div>
+                </div>
             </div>
         </div>
 
         <script type="text/javascript">
             var vm = new Vue({
-                el:"#app",
-                data:{
-                    imgSet:[
-                        {
-                            name:"First Vue Project",
-                            url:"./images/vue_logo.png",
-                            title:"I am the logo of Vue"
+                el: "#app",
+                data: {
+                    imgSet: [{
+                            name: "First Vue Project",
+                            url: "./images/vue_logo.png",
+                            title: "vue logo",
+                            summary: ' I am the logo of Vue.',
+                            category: 'vue',
                         },
                         {
-                            url:'./images/image1.jpg',
-                            title:'New Engine Developed',
-                            summary:'Recently, a new engine has been developed. As for what it can do, I have no idea.',
-                            category:'science',
+                            url: './images/image1.jpg',
+                            title: 'New Engine Developed',
+                            summary: 'Recently, a new engine has been developed. As for what it can do, I have no idea.',
+                            category: 'science',
                         },
                         {
-                            url:'./images/image2.jpg',
-                            title:'A Blue Helmet',
-                            summary:'I honestly have no idea why a blue helmet can be reported in the news. Is it because it is a blue helmet displayed on a blue background???',
-                            category:'boring',
+                            url: './images/image2.jpg',
+                            title: 'A Blue Helmet',
+                            summary: 'I honestly have no idea why a blue helmet can be reported in the news. Is it because it is a blue helmet displayed on a blue background???',
+                            category: 'boring',
                         },
                         {
-                            url:'./images/image3.jpg',
-                            title:'King of the Internet!',
-                            summary:'His highness Dogge has granted us the honor of appearing on our course DEMO. I feel so honored!!! So what should I say next???',
-                            category:'Internet',
+                            url: './images/image3.jpg',
+                            title: 'King of the Internet!',
+                            summary: 'His highness Dogge has granted us the honor of appearing on our course DEMO. I feel so honored!!! So what should I say next???',
+                            category: 'Internet',
                         },
                         {
-                            url:'./images/image4.jpg',
-                            title:'Shocking Cat',
-                            summary:'Any image of cat can get hot on the internet. Smily cat, sleepy cat, smelly cat, shocking cat...',
-                            category:'Internet Royalty',
+                            url: './images/image4.jpg',
+                            title: 'Shocking Cat',
+                            summary: 'Any image of cat can get hot on the internet. Smily cat, sleepy cat, smelly cat, shocking cat...',
+                            category: 'Internet Royalty',
                         },
                         {
-                            url:'./images/image5.jpg',
-                            title:'A Chimp',
-                            summary:'I do not know what to write here... So I am gonna repeat. I do not know what to write here... So I am gonna repeat.',
-                            category:'Animal',
+                            url: './images/image5.jpg',
+                            title: 'A Chimp',
+                            summary: 'I do not know what to write here... So I am gonna repeat. I do not know what to write here... So I am gonna repeat.',
+                            category: 'Animal',
                         },
                         {
-                            url:'./images/image6.jpg',
-                            title:'Chinese HAN Sword',
-                            summary:'Finally, something cool!!! Chinese Han-Dynasty Sword!!! Forged two millennium agao, so razor sharp today!',
-                            category:'Military',
+                            url: './images/image6.jpg',
+                            title: 'Chinese HAN Sword',
+                            summary: 'Finally, something cool!!! Chinese Han-Dynasty Sword!!! Forged two millennium agao, so razor sharp today!',
+                            category: 'Military',
                         },
-                    ]//this is array
+                    ] //this is array
                 }
             })
         </script>
