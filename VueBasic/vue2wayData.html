@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="./../vue.js"></script>
+        <title>Two Way Data-binding</title>
+    </head>
+    <body>
+    <div id='app'>
+    <div class='frame'>
+        <p>First Name: </p>
+        <input v-model="firstName"/>
+        <p>Last Name: </p>
+        <input v-model="lastName"/>
+        <p>Full Name: </p>
+        <input v-model="fullName"/>
+    </div>
+    </div>
+    <script type="text/javascript">
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                firstName:"Apple",
+                lastName:"Butter",
+            },
+            computed:{
+                fullName:{
+                    get:function(){
+                        //get data from first and last name input
+                        return this.firstName + " " + this.lastName
+                    },
+                    set:function(v){
+                        //set data from fullname to first and last
+                        var array = v.split(" ")
+                        this.firstName = array[0]
+                        this.lastName = array[array.length-1]
+                    }
+                }
+            }
+        })
+    </script>
+    </body>
+</html>

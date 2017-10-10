@@ -1,72 +1,89 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="content-type" content="text/html;charset=utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script type="text/javascript" src="./../vue.js"></script>
-        <title>Vue Model</title>
-    </head>
-    <body>
-<div id='app'>
-    <textarea v-model="textMess"></textarea>
-    <p>{{textMess}}</p>
-    <hr/>
-    <input type="radio" v-model="message" value="apple">
-    <input type="radio" v-model="message" value="pear">
-    <input type="checkbox" v-model="boxMess" value="pineapple">
-    <input type="checkbox" v-model="boxMess" value="grape">
-    <input type="checkbox" v-model="boxMess" value="banana">
-    <p>You have selected: {{boxMess}}</p>
-    <hr/>
-    <input v-model.lazy="message" />
-    <p>{{message}}</p>
-    <hr/>
-    <input v-model="newMessage" />
-    <p>{{newMessage}}</p>
-    <hr/>
-    <select v-model="optionMess">
+
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="./../vue.js"></script>
+    <title>Vue Model</title>
+</head>
+
+<body>
+    <div id='app'>
+        <textarea v-model="textMess"></textarea>
+        <p>{{textMess}}</p>
+        <hr/>
+        <input type="radio" v-model="message" value="apple">
+        <input type="radio" v-model="message" value="pear">
+        <input type="checkbox" v-model="boxMess" value="pineapple">
+        <input type="checkbox" v-model="boxMess" value="grape">
+        <input type="checkbox" v-model="boxMess" value="banana">
+        <p>You have selected: {{boxMess}}</p>
+        <hr/>
+        <input v-model.lazy="message" />
+        <p>{{message}}</p>
+        <hr/>
+        <input v-model="newMessage" />
+        <p>{{newMessage}}</p>
+        <hr/>
+        <select v-model="optionMess">
         <option v-for="i in list_option" v-bind:value="i.value">{{i.text}}</option>
 
     </select>
-    <p>You had selected Option: {{optionMess}}</p>
-    <hr/>
-    <input v-model="filterMess"/>
-    <p :title="title|capitalize">{{filterMess | capitalize}}</p>
-    <hr/>
-    <input v-model="computeMess">
-    <p>Computed the message to reverse: {{computed_msg}}</p>
-</div>
-<script type="text/javascript">
-    var vm = new Vue({
-        el:"#app",
-        data:{
-            message:'Initial value.',
-            newMessage: 'This is the new message property.',
-            textMess:'This is textarea input....',
-            boxMess:[],
-            optionMess:'',
-            list_option: [
-                {value:"apple", text: "fruit 1",},
-                {value:"pear", text: "fruit 2",},
-                {value:"orange", text: "fruit 3",},
-                {value:"grape", text: "fruit 4",},
-                {value:"rose", text: "flower 1",},
-            ],
-            filterMess:"This is message for the filter",
-            title:"this is title for the filter message",
-            computeMess:"Compute Message",
-        },
-        filters:{
-            capitalize: function (v) {
-                return v.toUpperCase();
+        <p>You had selected Option: {{optionMess}}</p>
+        <hr/>
+        <input v-model="filterMess" />
+        <p :title="title|capitalize">{{filterMess | capitalize}}</p>
+        <hr/>
+        <input v-model="computeMess">
+        <p>Computed the message to reverse: {{computed_msg}}</p>
+    </div>
+    <script type="text/javascript">
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                message: 'Initial value.',
+                newMessage: 'This is the new message property.',
+                textMess: 'This is textarea input....',
+                boxMess: [],
+                optionMess: '',
+                list_option: [{
+                        value: "apple",
+                        text: "fruit 1",
+                    },
+                    {
+                        value: "pear",
+                        text: "fruit 2",
+                    },
+                    {
+                        value: "orange",
+                        text: "fruit 3",
+                    },
+                    {
+                        value: "grape",
+                        text: "fruit 4",
+                    },
+                    {
+                        value: "rose",
+                        text: "flower 1",
+                    },
+                ],
+                filterMess: "This is message for the filter",
+                title: "this is title for the filter message",
+                computeMess: "Compute Message",
+            },
+            filters: {
+                capitalize: function(v) {
+                    return v.toUpperCase();
+                }
+            },
+            computed: {
+                computed_msg: function() {
+                    return this.computeMess.split("").reverse().join("")
+                }
             }
-        },
-        computed:{
-            computed_msg:function(){
-                return this.computeMess.split("").reverse().join("")
-            }
-        }
-    })
-</script>
-    </body>
+        })
+    </script>
+</body>
+
 </html>
