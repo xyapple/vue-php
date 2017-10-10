@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="content-type" content="text/html;charset=utf-8">
@@ -30,12 +29,18 @@
 
     </select>
     <p>You had selected Option: {{optionMess}}</p>
+    <hr/>
+    <input v-model="filterMess"/>
+    <p :title="title|capitalize">{{filterMess | capitalize}}</p>
+    <hr/>
+    <input v-model="computeMess">
+    <p>Computed the message to reverse: {{computed_msg}}</p>
 </div>
 <script type="text/javascript">
     var vm = new Vue({
         el:"#app",
         data:{
-            message:'Initial value. ',
+            message:'Initial value.',
             newMessage: 'This is the new message property.',
             textMess:'This is textarea input....',
             boxMess:[],
@@ -47,7 +52,20 @@
                 {value:"grape", text: "fruit 4",},
                 {value:"rose", text: "flower 1",},
             ],
+            filterMess:"This is message for the filter",
+            title:"this is title for the filter message",
+            computeMess:"Compute Message",
         },
+        filters:{
+            capitalize: function (v) {
+                return v.toUpperCase();
+            }
+        },
+        computed:{
+            computed_msg:function(){
+                return this.computeMess.split("").reverse().join("")
+            }
+        }
     })
 </script>
     </body>
