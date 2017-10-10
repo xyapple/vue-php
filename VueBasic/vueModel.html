@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="./../vue.js"></script>
+        <title>Vue Model</title>
+    </head>
+    <body>
+<div id='app'>
+    <input v-model="message" />
+</div>
+<script type="text/javascript">
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            message:'Initial value. ',
+        },
+    })
+</script>
+    </body>
+</html>
