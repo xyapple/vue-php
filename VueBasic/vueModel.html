@@ -26,11 +26,8 @@
     <p>{{newMessage}}</p>
     <hr/>
     <select v-model="optionMess">
-        <option value="apple">option 1</option>
-        <option value="pear">option 2</option>
-        <option value="flower">option 3</option>
-        <option value="rose">option 4</option>
-        <option value="orange">option 5</option>
+        <option v-for="i in list_option" v-bind:value="i.value">{{i.text}}</option>
+
     </select>
     <p>You had selected Option: {{optionMess}}</p>
 </div>
@@ -42,7 +39,14 @@
             newMessage: 'This is the new message property.',
             textMess:'This is textarea input....',
             boxMess:[],
-            optionMess: '',
+            optionMess:'',
+            list_option: [
+                {value:"apple", text: "fruit 1",},
+                {value:"pear", text: "fruit 2",},
+                {value:"orange", text: "fruit 3",},
+                {value:"grape", text: "fruit 4",},
+                {value:"rose", text: "flower 1",},
+            ],
         },
     })
 </script>
