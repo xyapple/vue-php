@@ -9,6 +9,16 @@
     </head>
     <body>
 <div id='app'>
+    <textarea v-model="textMess"></textarea>
+    <p>{{textMess}}</p>
+    <hr/>
+    <input type="radio" v-model="message" value="apple">
+    <input type="radio" v-model="message" value="pear">
+    <input type="checkbox" v-model="boxMess" value="pineapple">
+    <input type="checkbox" v-model="boxMess" value="grape">
+    <input type="checkbox" v-model="boxMess" value="banana">
+    <p>You have selected: {{boxMess}}</p>
+    <hr/>
     <input v-model.lazy="message" />
     <p>{{message}}</p>
     <hr/>
@@ -21,6 +31,8 @@
         data:{
             message:'Initial value. ',
             newMessage: 'This is the new message property.',
+            textMess:'This is textarea input....',
+            boxMess:[],
         },
     })
 </script>
