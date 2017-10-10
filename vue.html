@@ -10,11 +10,12 @@
     </head>
     <body>
         <div id='app'>
-            <p>My name is <span v-text="name"></span></p>
+            <p>My name is <span>{{name}}</span></p>
         </div>
         <script type="text/javascript">
         var model = {
             name:"firstVuewModel",
+            
         }
             var vm = new Vue({
                 el:"#app",
