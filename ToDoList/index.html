@@ -7,51 +7,65 @@
     <!-- Add Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
     <style>
-    .container{
-        width: 50%;
-    }
+        .container {
+            width: 50%;
+            margin-top: 30px;
+        }
+        .removed{
+            color: gray;
+        }
+        .removed label{
+            text-decoration: line-through;
+        }
+        ul li{
+            list-style-type: none;
+        }
+        .footer{
+            font-size: 12px;
+            margin-top: 20px;
+        }
     </style>
 </head>
 
 <body>
     <div class='container'>
-        <h1>To Do List</h1>
+        <h5>To Do List</h5>
         <div class='input-group'>
-            <input type='text' name='' id='' placeholder='add shopping list item' />
+            <input type='text' class='form-control' placeholder='add shopping list item' />
             <span class="input-group-btn">
-                    <button></button>
+                    <button class="addItem btn btn-default" type="button"> Add </button>
                 </span>
         </div>
         <ul>
             <li>
                 <div class='checkbox'>
-                    <label for="">
-                            <input type="checkbox" name="list" value="">
+                    <label for="checkbox">
+                            <input type="checkbox" name="list" class="item"/>Milk
                         </label>
                 </div>
             </li>
             <li>
                 <div class='checkbox'>
-                    <label for="">
-                            <input type="checkbox" name="list" value="">
+                    <label for="checkbox">
+                            <input type="checkbox" name="list" class="item"> Vegetable
                         </label>
                 </div>
             </li>
-            <li>
-                <div class='removed'>
-                    <label for="">
-                            <input type="checkbox" name="list" value="">
+            <li class="removed">
+                <div class='checkbox'>
+                    <label for="checkbox">
+                            <input type="checkbox" name="list" class="item"> Apples
                         </label>
-                </div>
-            </li>
-            <li>
-                <div class='footer'>
-                    <hr/>
-                    <p>Change the title of your shopping list</p>
-                    <input type='text' value='My shooping List' />
                 </div>
             </li>
         </ul>
+        <div class='footer'>
+            <hr/>
+            <p>Change the title of your shopping list</p>
+            <input type='text' value='My shooping List' />
+        </div>
+
+
     </div>
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
