@@ -18,8 +18,13 @@
     <div id='app' class="container">
         <h2>{{title}}</h2>
         <ul>
-            <li v-for="i in items" :key="i.key">{{i}}</li>
-
+            <li v-for="i in items" :key="i.key" v-bind:class="{'removed':i.checked}">
+            <div class='checkbox'>
+                <label for='input'>
+                    <input type="checkbox" v-model="i.checked">{{i.text}}
+                </label>
+            </div>
+            </li>
         </ul>
         <div class='footer'>
             <hr/>
@@ -35,8 +40,11 @@
     new Vue({
         el:'#app',
         data:{
-            items:['apple', 'banana', 'pineapple'],
-            title: 'My Shopping List'
+            items:[{text:'apple', checked:true},
+                   {text:'banana',checked:false},
+                   {text:'pineapple',checked:false}],
+            title: 'My Shopping List',
+            newItem:'',
         }
     })
     </script>
