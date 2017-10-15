@@ -18,9 +18,8 @@
     <div id='app' class="container">
         <h2>{{title}}</h2>
         <ul>
-            <li>{{item[0]}}</li>
-            <li>{{item[1]}}</li>
-            <li>{{item[2]}}</li>
+            <li v-for="i in items" :key="i.key">{{i}}</li>
+
         </ul>
         <div class='footer'>
             <hr/>
@@ -36,7 +35,7 @@
     new Vue({
         el:'#app',
         data:{
-            item:['apple', 'banana', 'pineapple'],
+            items:['apple', 'banana', 'pineapple'],
             title: 'My Shopping List'
         }
     })
