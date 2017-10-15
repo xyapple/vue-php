@@ -11,11 +11,16 @@
         ul li{
             list-style-type: none;
         }
+        .removed label {
+          text-decoration: line-through;
+        }
+
     </style>
 </head>
 
 <body>
     <div id='app' class="container">
+        <h2>{{title}}</h2>
         <div class='input-group'>
             <input v-model="newItem" v-on:keyup.enter='addItem'
                     placeholder = "add To Do List Items"
@@ -26,11 +31,11 @@
                         </button>
                     </span>
         </div>
-        <h2>{{title}}</h2>
         <ul>
-            <li v-for="i in items" :key="i.key" v-bind:class="{'removed':i.checked}">
+            <li v-for="i in items" :key="i.key" :class="{'removed':i.checked}">
+                                        
             <div class='checkbox'>
-                <label for='input'>
+                <label >
                     <input type="checkbox" v-model="i.checked">{{i.text}}
                 </label>
             </div>
@@ -52,10 +57,10 @@
         data:{
             items:[{text:'apple', checked:true},
                    {text:'banana',checked:false},
-                   {text:'pineapple',checked:false}],
+                   {text:'pineapple',checked:false},],
             title: 'My Shopping List',
             newItem:'',
-        }
+        },
         methods: {
           addItem:function () {
               var text;
