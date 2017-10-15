@@ -7,6 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Add Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+    <style media="screen">
+        ul li{
+            list-style-type: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -17,7 +22,11 @@
             <li>{{item[1]}}</li>
             <li>{{item[2]}}</li>
         </ul>
-
+        <div class='footer'>
+            <hr/>
+            <p>Change the title of To Do List here</p>
+            <input v-model="title"/>
+        </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
