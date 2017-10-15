@@ -29,9 +29,9 @@
 
 <body>
     <div class='container'>
-        <h5>To Do List</h5>
+        <h5 class="title">To Do List</h5>
         <div class='input-group'>
-            <input type='text' class='form-control' placeholder='add shopping list item' />
+            <input type='text' class='addNewItems form-control' placeholder='add shopping list item' />
             <span class="input-group-btn">
                     <button class="addItem btn btn-default" type="button"> Add </button>
                 </span>
@@ -62,7 +62,7 @@
         <div class='footer'>
             <hr/>
             <p>Change the title of your shopping list</p>
-            <input type='text' value='My shooping List' />
+            <input type='text' value='To Do List' class='changeTitle'/>
         </div>
 
 
@@ -71,6 +71,39 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
     <script type="text/javascript">
+    $(function () {
+    function addItems() {
+        var $ul, $li,$lable,$div,value;
+        value=$('.addNewItems').val();
+        if(value == ''){
+            return;
+        }
+        $ul = $('ul');
+        $li = $('<li>').appendTo($ul);
+        $div=$('<div>').addClass('checkbox').appendTo($li);
+        $label = $('<label>').appendTo($div);
+        $('<input />')
+        .attr('type', 'checkbox')
+        .addClass('item')
+        .attr('name', 'list')
+        .click(toggleRemoved)
+        .appendTo($label);
+        $label.append(value);
+        $('.addNewItems').val('');
+    }
+    function toggleRemoved(ev) {
+        var $el;
+        $el = $(ev.currentTarget);
+        $el.closest('li').toggleClass('removed');
+    }
+    function onChangeTitle() {
+        $('.title').text($('.changeTitle').val());
+
+    }
+    $('.addItem').click(addItems);
+    $('.item').click(toggleRemoved);
+    $('.changeTitle').keyup(onChangeTitle);
+    })
     </script>
 </body>
 
