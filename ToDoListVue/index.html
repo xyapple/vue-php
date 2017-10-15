@@ -16,6 +16,16 @@
 
 <body>
     <div id='app' class="container">
+        <div class='input-group'>
+            <input v-model="newItem" v-on:keyup.enter='addItem'
+                    placeholder = "add To Do List Items"
+                    type="text" class="form-control">
+                    <span class="input-group-btn">
+                        <button v-on:click='addItem' class="btn btn-default"
+                                type="button">Add!
+                        </button>
+                    </span>
+        </div>
         <h2>{{title}}</h2>
         <ul>
             <li v-for="i in items" :key="i.key" v-bind:class="{'removed':i.checked}">
@@ -46,7 +56,20 @@
             title: 'My Shopping List',
             newItem:'',
         }
-    })
+        methods: {
+          addItem:function () {
+              var text;
+              text = this.newItem.trim();
+              if(text){
+                  this.items.push({
+                      text:text,
+                      checked:false
+                  });
+                  this.newItem = '';
+              }
+          }
+        }
+    });
     </script>
 </body>
 
