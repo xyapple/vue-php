@@ -77,15 +77,16 @@
             </comp>
         </div>
         <template id='temp'>
- <div class='style'>
- <slot name='title'></slot>
- <div class='line'></div> <!--Separating Line-->
- <slot></slot>
- <div class='line'></div> <!--Separating Line-->
- <slot name='author-info'></slot>
- <slot name='category'></slot>
- </div>
- </template>
+             <div class='style'>
+             <slot name='title'></slot>
+             <div class='line'></div> <!--Separating Line-->
+             <slot></slot>
+             <div class='line'></div> <!--Separating Line-->
+             <slot name='author-info'></slot>
+             <slot name='category'></slot>
+             </div>
+         </template>
+
         <script type='text/javascript'>
             Vue.component('comp', {
                 template: '#temp',
