@@ -11,21 +11,20 @@
 </head>
     <body>
 <div id='app'>
-    <template id="temp">
-        <div class='input-group'>
-            <!-- label is a prop -->
-            <label>{{label}}</label>
-            <br/>
-            <!-- set details later-->
-            <input >
-        </div>
-    </template>
-    <hr/>
-    <item label='Price'></item>
-    <item label='Shipping'></item>
-    <item label='Discount'></item>
+    <item label='Price' v-bind:value='price'></item>
+    <item label='Shipping' v-bind:value='shipping'></item>
+    <item label='Discount' v-bind:value='discount'></item>
     <p><span>Total Cost: </span> {{total}}</p>
 </div>
+<template id="temp">
+    <div class='input-group'>
+        <!-- label is a prop -->
+        <label>{{label}}</label>
+        <br/>
+        <!-- set details later-->
+        <input v-bind:value='value'>
+    </div>
+</template>
 <script type="text/javascript">
 
 Vue.component ('item',{
@@ -33,7 +32,7 @@ Vue.component ('item',{
    data:function () {
        return{}
    },
-   props:['label'],
+   props:['label', 'value'],
    methods:{},
 })
 
