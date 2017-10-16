@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Vue Sending More than One Data at a time</title>
+        <script type="text/javascript" src="./../vue.js"></script>
+    </head>
+    <body>
+        <div id='app'>
+            <h1>Prarent div tag</h1>
+            <comp v-on:relay='content'></comp>
+            <hr/>
+            <p>{{content1}}</p>
+            <hr/>
+            <p>{{content2}}</p>
+        </div>
+        <template id="temp">
+        <div class="comp-root">
+            <h2>Component</h2>
+            <input v-model='message1'>
+            <button type="button" v-on:click='send'>Button 1</button>
+            <hr/>
+            <input v-model='message2'>
+            <button type="button" v-on:click='send'>Button 2</button>
+
+        </div>
+    </template>
+    <script type="text/javascript">
+        Vue.component('comp', {
+            template: "#temp",
+            data: function() {
+                return {
+                    message1: "send to button 1 ",
+                    message2: "send to button s ",
+                }
+            },
+            props: [],
+            methods: {
+                send:function(){
+                    this.$emit('relay', this.message1, this.message2)
+                }
+            },
+        })
+
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                content1:"Waiting for data from component 1",
+                content2:"Waiting for data from component 2",
+            },
+            methods: {
+              content:function(v1, v2) {
+                this.content1=v1;
+                this.content2=v2;
+              }
+            }
+
+        })
+    </script>
+    </body>
+</html>
