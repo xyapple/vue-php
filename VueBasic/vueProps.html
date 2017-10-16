@@ -7,24 +7,9 @@
     <script type="text/javascript" src="./../vue.js"></script>
     <title>Vue Props--how the Prop works</title>
     <style>
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        div,
-        p,
-        span {
-            font-family: helvetica;
-            padding: 0;
-            margin: 0;
-            font-size: 36px;
-        }
 
         .comp_root {
-            background: red;
-            color: white;
+            border: blue;
         }
 
     </style>
@@ -32,17 +17,14 @@
 
 <body>
     <div id='app'>
-        <p>Vue Instance</p>
-        <comp prop="direct value"></comp>
-        <comp :prop="vue_data"></comp>
+        <h1>Prarent div tag</h1>
+        <comp></comp>
     </div>
     <template id="temp">
     <div class="comp-root">
-        <p>This is a Component</p>
-        <hr/>
-         <p>{‌{message}}</p>
-         <hr/>
-         <p>{‌{prop}}</p>
+        <h2>Component</h2>
+        <input v-model='message'>
+        <button type="button" name="button">Send Data</button>
     </div>
 </template>
     <script type="text/javascript">
@@ -50,17 +32,17 @@
             template: "#temp",
             data: function() {
                 return {
-                    message: "Component's own data" + this.prop,
+                    message: "send to P tag",
                 }
             },
-            props: ['prop'],
+            props: [],
             methods: {},
         })
 
         var vm = new Vue({
             el: "#app",
             data: {
-                vue_data: "Vue's data"
+                content:"Waiting for data from component",
             },
 
         })
