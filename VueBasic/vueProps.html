@@ -18,13 +18,15 @@
 <body>
     <div id='app'>
         <h1>Prarent div tag</h1>
-        <comp></comp>
+        <comp v-on:relay='content=arguments[0]'></comp>
+        <hr/>
+        <p>{{content}}</p>
     </div>
     <template id="temp">
     <div class="comp-root">
         <h2>Component</h2>
         <input v-model='message'>
-        <button type="button" name="button">Send Data</button>
+        <button type="button" v-on:click='send'>Send Data</button>
     </div>
 </template>
     <script type="text/javascript">
@@ -36,7 +38,11 @@
                 }
             },
             props: [],
-            methods: {},
+            methods: {
+                send:function(){
+                    this.$emit('relay', this.message)
+                }
+            },
         })
 
         var vm = new Vue({
