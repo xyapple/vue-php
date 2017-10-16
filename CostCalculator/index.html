@@ -11,18 +11,32 @@
 </head>
     <body>
 <div id='app'>
-    <div class='input-group'>
-        <label >Price:</label>
-        <input >
-        <label >shipping:</label>
-        <input >
-        <label >discount:</label>
-        <input >
-    </div>
+    <template id="temp">
+        <div class='input-group'>
+            <!-- label is a prop -->
+            <label>{{label}}</label>
+            <br/>
+            <!-- set details later-->
+            <input >
+        </div>
+    </template>
     <hr/>
-    <p>Total: </p>
+    <item label='Price'></item>
+    <item label='Shipping'></item>
+    <item label='Discount'></item>
+    <p><span>Total Cost: </span> {{total}}</p>
 </div>
 <script type="text/javascript">
+
+Vue.component ('item',{
+   template:'#temp',
+   data:function () {
+       return{}
+   },
+   props:['label'],
+   methods:{},
+})
+
 new Vue({
 el:'#app',
 data:{
@@ -32,7 +46,7 @@ data:{
 },
 computed:{
     total: function () {
-        return
+        return this.price + this.shipping - this.discount
     }
 }
 })
