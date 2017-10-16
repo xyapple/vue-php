@@ -11,9 +11,9 @@
 </head>
     <body>
 <div id='app'>
-    <item label='Price' v-bind:value='price'></item>
-    <item label='Shipping' v-bind:value='shipping'></item>
-    <item label='Discount' v-bind:value='discount'></item>
+    <item label='Price' v-bind:value='price' v-on:input='price=arguments[0]'></item>
+    <item label='Shipping' v-bind:value='shipping' v-on:input='shipping=arguments[0]'></item>
+    <item label='Discount' v-bind:value='discount' v-on:input='discount=arguments[0]'></item>
     <p><span>Total Cost: </span> {{total}}</p>
 </div>
 <template id="temp">
@@ -22,7 +22,7 @@
         <label>{{label}}</label>
         <br/>
         <!-- set details later-->
-        <input v-bind:value='value'>
+        <input v-bind:value='value' v-on:input='send($event.target.value)'/>
     </div>
 </template>
 <script type="text/javascript">
@@ -33,7 +33,12 @@ Vue.component ('item',{
        return{}
    },
    props:['label', 'value'],
-   methods:{},
+   methods:{
+       send:function (v) {
+        //send v to Vue data
+        this.$emit('input', v)
+       }
+   },
 })
 
 new Vue({
