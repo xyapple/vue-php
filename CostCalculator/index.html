@@ -14,6 +14,8 @@
     <item label='Price' v-bind:value='price' v-on:input='price=arguments[0]'></item>
     <item label='Shipping' v-bind:value='shipping' v-on:input='shipping=arguments[0]'></item>
     <item label='Discount' v-bind:value='discount' v-on:input='discount=arguments[0]'></item>
+    <item label='Gift Wrap' v-bind:value='giftWrap' v-on:input='giftWrap=arguments[0]'></item>
+    <hr/>
     <p><span>Total Cost: </span> {{total}}</p>
 </div>
 <template id="temp">
@@ -47,10 +49,15 @@ data:{
     price:0,
     shipping:0,
     discount:0,
+    giftWrap:0,
 },
 computed:{
     total: function () {
-        return this.price + this.shipping - this.discount
+        this.price = Number(this.price)
+        this.shipping = Number(this.shipping)
+        this.discount = Number(this.discount)
+        this.giftWrap = Number(this.giftWrap)
+        return this.price + this.shipping+this.giftWrap - this.discount
     }
 }
 })
