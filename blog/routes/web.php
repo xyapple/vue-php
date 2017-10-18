@@ -10,6 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', 'PostsController@index');
+
 use App\Task;
 Route::get('/tasks', 'TaskController@index');
 Route::get('/tasks/{task}','TaskController@show');
