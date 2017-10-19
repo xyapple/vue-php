@@ -12,4 +12,12 @@ class Post extends Model
     {
         return $this -> hasMany(Comment::class);
     }
+
+    public function addComments($body)
+    {
+        Comment::create([
+            'body'=>$body,
+            'post_id'=>$this->id
+        ]);
+    }
 }

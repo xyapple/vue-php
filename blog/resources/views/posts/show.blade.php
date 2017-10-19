@@ -24,8 +24,9 @@
     {{-- Add a comment --}}
     <div class="card">
         <div class="card-block">
-            <form name="comment" action="/posts/{{$post->id}}/comments" method="post">
-
+            <form name="comment" method="POST" action="/posts/{{$post->id}}/comments" >
+                {{--This must be in the form  --}}
+                {{ csrf_field() }}
                 <div class="form-group">
                     <textarea class="form-control" name="body" rows="8" cols="80" placeholder="Please leave comment"></textarea>
                 </div>
