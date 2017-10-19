@@ -15,9 +15,10 @@ class Post extends Model
 
     public function addComments($body)
     {
-        Comment::create([
-            'body'=>$body,
-            'post_id'=>$this->id
-        ]);
+        // Comment::create([
+        //     'body'=>$body,
+        //     'post_id'=>$this->id
+        // ]);
+        $this -> comments()->create(compact('body'));
     }
 }
