@@ -35,7 +35,11 @@ class PostsController extends Controller
         //     'title'=>request ('title'),
         //     'body'=>request ('body'),
         // ]);
-        
+        $this->validate(request(), [
+             'title' => 'required|unique:posts|max:50',
+             'body' => 'required|max:250',
+         ]);
+
         Post::create(request(['title', 'body']));
         //redicret to the home page
         return redirect('/');
