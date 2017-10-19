@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Post;
 class PostsController extends Controller
 {
     //
@@ -24,16 +25,16 @@ class PostsController extends Controller
     public function store()
     {
         //create a new post basice on the request
-        $post = new \App\Post;
-
-        $post -> title = request ('title');
-        $post -> body = request('body');
+         $post = new Post;
+        //
+        // $post -> title = request ('title');
+        // $post -> body = request('body');
         //save to database
-        $post->save();
-        // Post::create([
-        //     'title'=>request ('title'),
-        //     'body'=>request ('body'),
-        // ]);
+        //$post->save();
+        Post::create([
+            'title'=>request ('title'),
+            'body'=>request ('body'),
+        ]);
         //redicret to the home page
         return redirect('/');
 
