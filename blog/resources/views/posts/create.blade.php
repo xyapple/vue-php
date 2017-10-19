@@ -10,11 +10,11 @@
     {{ csrf_field() }}
   <div class="form-group">
     <label for="title">Title</label>
-    <input type="text" class="form-control" id="title" name="title">
+    <input type="text" class="form-control" id="title" name="title" required>
   </div>
   <div class="form-group">
     <label for="body">Content of the Post</label>
-    <textarea name="body" id="body" rows="8" cols="80"></textarea>
+    <textarea name="body" id="body" rows="8" cols="80" required></textarea>
   </div>
 <div class="form-group">
   <button type="submit" class="btn btn-primary">Publish</button>

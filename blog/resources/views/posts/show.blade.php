@@ -28,11 +28,12 @@
                 {{--This must be in the form  --}}
                 {{ csrf_field() }}
                 <div class="form-group">
-                    <textarea class="form-control" name="body" rows="8" cols="80" placeholder="Please leave comment"></textarea>
+                    <textarea class="form-control" name="body" rows="8" cols="80" placeholder="Please leave comment" required></textarea>
                 </div>
                 <div class="form-group">
                   <button type="submit" class="btn btn-primary">Add Comment</button>
                 </div>
+                @include('layouts.error')
             </form>
         </div>
 
