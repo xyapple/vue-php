@@ -13,7 +13,7 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
     <!-- Custom styles for this template -->
-    <link href="/css/blog.css" rel="stylesheet">
+    <link href="/css/app.css" rel="stylesheet">
   </head>
 
   <body>
