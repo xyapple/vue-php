@@ -26,15 +26,17 @@ class PostsController extends Controller
     {
         //create a new post basice on the request
          $post = new Post;
-        //
+        ////save to database
         // $post -> title = request ('title');
         // $post -> body = request('body');
-        //save to database
         //$post->save();
-        Post::create([
-            'title'=>request ('title'),
-            'body'=>request ('body'),
-        ]);
+
+        // Post::create([
+        //     'title'=>request ('title'),
+        //     'body'=>request ('body'),
+        // ]);
+        
+        Post::create(request(['title', 'body']));
         //redicret to the home page
         return redirect('/');
 
