@@ -5,8 +5,6 @@
 <div class="col-sm-8 blog-main">
     <h1> {{$post->title}}</h1>
     <hr>
-    {{$post->user->name}} on
-    {{$post->created_at->toFormattedDateString()}}
     <p>
          {{$post->body}}
     </p>

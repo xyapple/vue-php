@@ -20,8 +20,8 @@
       </div>
 
       <div class="form-group">
-        <label for="password_com">Comfirm Password:</label>
-        <input type="password" class="form-control" id="password_com" name="password_com" required>
+        <label for="password_confirmation">Comfirm Password:</label>
+        <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required>
       </div>
 
     <div class="form-group">
