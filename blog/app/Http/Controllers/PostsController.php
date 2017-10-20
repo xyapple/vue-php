@@ -30,6 +30,7 @@ class PostsController extends Controller
     {
         return view('posts.create');
     }
+    
     public function store()
     {
         //create a new post basice on the request
@@ -44,11 +45,17 @@ class PostsController extends Controller
              'body' => 'required|max:250',
          ]);
 
-         Post::create([
-             'title'=>request ('title'),
-             'body'=>request ('body'),
-             'user_id'=>auth()->user()->id,
-         ]);
+        //  Post::create([
+        //      'title'=>request ('title'),
+        //      'body'=>request ('body'),
+        //      'user_id'=>auth()->user()->id,
+        //  ]);
+        auth()->user()->publish(
+    		new Post(request([
+    			'title',
+    			'body'
+    		]))
+    	);
         //redicret to the home page
         return redirect('/');
 
