@@ -14,15 +14,14 @@
   </div>
   <div class="form-group">
     <label for="body">Content of the Post</label>
-    <textarea name="body" id="body" rows="8" cols="80" required></textarea>
+    <textarea name="body" id="body" rows="5" cols="70" required></textarea>
   </div>
 <div class="form-group">
   <button type="submit" class="btn btn-primary">Publish</button>
 </div>
-@include('layouts.error')
+
 </form>
-
-
+@include('layouts.error')
 
 </div><!-- /.blog-main -->
 @endsection

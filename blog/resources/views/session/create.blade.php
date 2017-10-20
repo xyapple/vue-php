@@ -19,8 +19,8 @@
     <div class="form-group">
       <button type="submit" class="btn btn-primary">Log In</button>
     </div>
-    @include('layouts.error')
-    </form>
 
+    </form>
+@include('layouts.error')
     </div>
 @endsection

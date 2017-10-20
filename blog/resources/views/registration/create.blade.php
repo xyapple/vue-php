@@ -27,8 +27,8 @@
     <div class="form-group">
       <button type="submit" class="btn btn-primary">Register</button>
     </div>
-    @include('layouts.error')
-    </form>
 
+    </form>
+    @include('layouts.error')
     </div>
 @endsection

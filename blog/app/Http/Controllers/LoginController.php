@@ -22,7 +22,9 @@ class LoginController extends Controller
     public function store()
     {
         if(!auth()->attempt(['email','password'])){
-            return back;
+            return back()->withErrors([
+    			'message' => 'Please check your credentials and try again.'
+            ]);
         }
         //redirect
         return redirect('/');
