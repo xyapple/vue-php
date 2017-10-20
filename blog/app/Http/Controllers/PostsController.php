@@ -7,6 +7,11 @@ use App\Post;
 class PostsController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index','show']);
+    }
+
     public function index()
     {
         $posts = Post::orderBy('created_at', 'desc')->get();
@@ -33,16 +38,16 @@ class PostsController extends Controller
         // $post -> body = request('body');
         //$post->save();
 
-        // Post::create([
-        //     'title'=>request ('title'),
-        //     'body'=>request ('body'),
-        // ]);
         $this->validate(request(), [
              'title' => 'required|unique:posts|max:50',
              'body' => 'required|max:250',
          ]);
 
-        Post::create(request(['title', 'body']));
+         Post::create([
+             'title'=>request ('title'),
+             'body'=>request ('body'),
+             'user_id'=>auth()->user()->id,
+         ]);
         //redicret to the home page
         return redirect('/');
 
