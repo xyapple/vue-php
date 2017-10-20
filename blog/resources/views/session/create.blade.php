@@ -3,7 +3,7 @@
 @section('content')
     <div class="col-sm-8 blog-main">
     <h1>Register</h1>
-    <form method="post" action="/posts">
+    <form method="post" action="/register">
         {{--This must be in the form  --}}
         {{ csrf_field() }}
       <div class="form-group">
@@ -20,7 +20,7 @@
       </div>
 
     <div class="form-group">
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary">Register</button>
     </div>
     @include('layouts.error')
     </form>
