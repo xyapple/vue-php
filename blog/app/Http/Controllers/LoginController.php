@@ -21,7 +21,7 @@ class LoginController extends Controller
     //save user input login
     public function store()
     {
-        if(!auth()->attempt(['email','password'])){
+        if(!auth()->attempt(request(['email','password']))){
             return back()->withErrors([
     			'message' => 'Please check your credentials and try again.'
             ]);
